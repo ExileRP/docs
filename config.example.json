@@ -1,0 +1,11 @@
+{
+  "server": {
+    "host": "localhost",
+    "port": 25565,
+    "version": false
+  },
+  "botCount": 5,
+  "owner": "YourMinecraftUsername",
+  "autoReconnect": true,
+  "connectDelay": 2000
+}
