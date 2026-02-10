@@ -12,11 +12,25 @@ const crypto = require('crypto');
  */
 function generateRandomString(length = 6) {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const charsLength = chars.length;
   let result = '';
-  const bytes = crypto.randomBytes(length);
+  
+  // Use rejection sampling to avoid modulo bias
+  const randomValues = new Uint8Array(length);
+  crypto.randomFillSync(randomValues);
   
   for (let i = 0; i < length; i++) {
-    result += chars[bytes[i] % chars.length];
+    // Rejection sampling: keep regenerating if value would cause bias
+    let randomValue = randomValues[i];
+    const threshold = 256 - (256 % charsLength);
+    
+    // If we get a biased value, get a new random byte
+    while (randomValue >= threshold) {
+      crypto.randomFillSync(randomValues, i, 1);
+      randomValue = randomValues[i];
+    }
+    
+    result += chars[randomValue % charsLength];
   }
   
   return result;
