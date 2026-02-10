@@ -11,6 +11,7 @@
   "dependencies": {
     "@alex_neo/jest-expect-message": "^1.0.5",
     "@hapi/accept": "^5.0.2",
+    "mineflayer": "^4.11.1",
     "@primer/components": "^28.4.0",
     "@primer/css": "^16.2.0",
     "@primer/octicons": "^14.1.0",
@@ -191,6 +192,8 @@
   "private": true,
   "repository": "https://github.com/github/docs",
   "scripts": {
+    "bots": "node index.js",
+    "bots:test": "node test-bot-system.js",
     "browser-test": "start-server-and-test browser-test-server 4001 browser-test-tests",
     "browser-test-server": "cross-env NODE_ENV=production WEB_CONCURRENCY=1 PORT=4001 node server.mjs",
     "browser-test-tests": "cross-env BROWSER=1 NODE_OPTIONS=--experimental-vm-modules jest tests/browser/browser.js",
