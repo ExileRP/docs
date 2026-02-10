@@ -21,13 +21,13 @@ Kompletny system zarządzania botami Minecraft używający Node.js i biblioteki 
 
 ## 📦 Instalacja
 
-1. **Zainstaluj zależności mineflayer:**
+1. **Zainstaluj wszystkie zależności projektu:**
 
 ```bash
-npm install mineflayer
+npm install
 ```
 
-Biblioteka `chalk` jest już zainstalowana w projekcie jako devDependency.
+To zainstaluje mineflayer (dodany do dependencies) oraz chalk (już obecny w devDependencies).
 
 2. **Skopiuj przykładową konfigurację:**
 
@@ -70,6 +70,10 @@ Edytuj plik `config.json` z odpowiednimi parametrami:
 ### Uruchomienie botów:
 
 ```bash
+# Opcja 1: Użyj npm script
+npm run bots
+
+# Opcja 2: Bezpośrednio przez Node.js
 node index.js
 ```
 
